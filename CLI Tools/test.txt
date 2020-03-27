@@ -1,0 +1,14 @@
+
+The argparse module is built into Python 3.6. Also, you likely have another module/namespace somewhere that is causing a conflict - try print(argparse) immediately after the import and see where that path leads. – metatoaster Feb 7 '18 at 10:23
+2
+By any chance did you create a file called argparse.py ? – khelwood Feb 7 '18 at 10:23
+OMG - what a dumb @r53 - yes I did. That was the problem. Thanks metatoaster & khelwood. It never clicked that my module was creating a conflicting namespace. An important "learning python" tip for me. – Bryon Feb 7 '18 at 11:12
+
+add a comment
+1 Answer
+Active
+Oldest
+Votes
+1
+
+Based on the comments, we know that the issue was that the user created a file called argparse.py, which shadowed the standard library argparse. An easy way to detect if this is the case is to print out the file path location of a module.
